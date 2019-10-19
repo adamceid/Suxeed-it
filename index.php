@@ -32,7 +32,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-8 col-xl-8">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="index.php">
                             <img src="img/logo.png" alt="logo">
                         </a>
                         <!--<img src="img/logo.png" alt="logo"> </a>-->
@@ -46,13 +46,13 @@
                             id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Home </a>
+                                    <a class="nav-link" href="index.php">Home </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="about.html">About</a>
+                                    <a class="nav-link" href="about.php">About</a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link" href="contact.php">Contact</a>
                                 </li>
                             </ul>
                         </div>

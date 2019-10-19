@@ -2,15 +2,15 @@ $(document).ready(function(){
     
     (function($) {
         "use strict";
-
-    
     jQuery.validator.addMethod('answercheck', function (value, element) {
         return this.optional(element) || /^\bcat\b$/.test(value)
     }, "type the correct answer -_-");
 
     // validate contactForm form
     $(function() {
-        $('#contactForm').validate({
+        var form = $("#contactForm");
+
+        form.validate({
             rules: {
                 name: {
                     required: true,
@@ -54,32 +54,54 @@ $(document).ready(function(){
                     minlength: "thats all? really?"
                 }
             },
-            submitHandler: function(form) {
-                $(form).ajaxSubmit({
-                    type:"POST",
-                    data: $(form).serialize(),
-                    url:"contact_process.php",
-                    success: function() {
-                        $('#contactForm :input').attr('disabled', 'disabled');
-                        $('#contactForm').fadeTo( "slow", 1, function() {
-                            $(this).find(':input').attr('disabled', 'disabled');
-                            $(this).find('label').css('cursor','default');
-                            $('#success').fadeIn()
-                            $('.modal').modal('hide');
-		                	$('#success').modal('show');
-                        })
-                    },
-                    error: function() {
-                        $('#contactForm').fadeTo( "slow", 1, function() {
-                            $('#error').fadeIn()
-                            $('.modal').modal('hide');
-		                	$('#error').modal('show');
-                        })
-                    }
-                })
-            }
         })
+        form.submit(function(e){
+            $(this).attr("disabled","disabled");
+            e.preventDefault();
+            $.ajax({
+                type: form.attr("method"),
+                url: form.attr("action"),
+                data: form.serialize(),
+                dataType: "json",
+                success: function(data){
+                    $(".response").text(data.content);
+                    if(data.response == 'Success'){
+                        $(".response").css({
+                            "background-color": "#bbfc90",
+                            "border": "solid 1px '#355e19'",
+                            "font-family": "Arial",
+                            "font-size": "15px",
+                            "padding": "5px",
+                            "display":"block",
+                            "max-width": "380px"
+                        });
+                    }
+                    else{
+                        $(".response").css({
+                            "background-color": "#f2c7c4",
+                            "border": "solid 1px red",
+                            "font-family": "Arial",
+                            "font-size": "15px",
+                            "padding": "5px",
+                            "display":"block",
+                            "max-width": "380px"
+                        });
+                    }
+                },
+                error: function(data){
+                    $(".response").text("An error occured!");
+                    $(".response").css({
+                        "background-color": "#f2c7c4",
+                        "border": "solid 1px red",
+                        "font-family": "Arial",
+                        "font-size": "15px",
+                        "padding": "5px",
+                        "display":"block",
+                        "max-width": "250px"
+                    });
+                }
+            });
+        });
     })
-        
  })(jQuery)
 })

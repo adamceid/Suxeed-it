@@ -1,11 +1,10 @@
 <?php
 
-    $to = "rockybd1995@gmail.com";
+    $to = "adhamkash@gmail.com";
     $from = $_REQUEST['email'];
     $name = $_REQUEST['name'];
-    $subject = $_REQUEST['subject'];
-    $number = $_REQUEST['number'];
-    $cmessage = $_REQUEST['message'];
+    $csubject = $_REQUEST['subject'];
+	$cmessage = $_REQUEST['message'];
 
     $headers = "From: $from";
 	$headers = "From: " . $from . "\r\n";
@@ -32,6 +31,14 @@
 	$body .= "</tbody></table>";
 	$body .= "</body></html>";
 
-    $send = mail($to, $subject, $body, $headers);
-
+	if(mail($to, $subject, $body, $headers)){
+		$data['response'] = "Success";
+		$data['content'] = "Thank you! your message has been sent successfully.";
+		echo json_encode($data);
+	}
+	else{
+		$data['response'] = "error";
+		$data['content'] = "Failure! your message has not been sent.";
+		echo json_encode($data);
+}
 ?>

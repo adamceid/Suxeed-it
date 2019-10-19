@@ -32,7 +32,7 @@
       <div class="row align-items-center">
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index.php">
                 <img src="img/logo.png" alt="logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -43,13 +43,13 @@
             <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home </a>
+                  <a class="nav-link" href="index.php">Home </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html">About</a>
+                  <a class="nav-link" href="about.php">About</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="contact.html">Contact</a>
+                  <a class="nav-link" href="contact.php">Contact</a>
                 </li>
               </ul>
             </div>
@@ -76,45 +76,15 @@
     </div>
   </section>
   <!-- breadcrumb start-->
-
   <!-- ================ contact section start ================= -->
   <section class="contact-section section_padding">
     <div class="container">
-      <!-- <div class="d-none d-sm-block mb-5 pb-4">
-        <div id="map" style="height: 480px;"></div>
-        <script>
-          function initMap() {
-            var uluru = {lat: -25.363, lng: 131.044};
-            var grayStyles = [
-              {
-                featureType: "all",
-                stylers: [
-                  { saturation: -90 },
-                  { lightness: 50 }
-                ]
-              },
-              {elementType: 'labels.text.fill', stylers: [{color: '#ccdee9'}]}
-            ];
-            var map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: -31.197, lng: 150.744},
-              zoom: 9,
-              styles: grayStyles,
-              scrollwheel:  false
-            });
-          }
-          
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&callback=initMap"></script>
-        
-      </div> -->
-
-
       <div class="row">
         <div class="col-12">
           <h2 class="contact-title">Get in Touch</h2>
         </div>
         <div class="col-lg-8">
-          <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm"
+        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm"
             novalidate="novalidate">
             <div class="row">
               <div class="col-12">
@@ -128,24 +98,28 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''"
-                    onblur="this.placeholder = 'Enter your name'" placeholder='Enter your name'>
+                    onblur="this.placeholder = 'Enter your name'" placeholder ="Enter your name">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''"
-                    onblur="this.placeholder = 'Enter email address'" placeholder='Enter email address'>
+                    onblur="this.placeholder = 'Enter email address'" placeholder="Enter email address">
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''"
-                    onblur="this.placeholder = 'Enter Subject'" placeholder='Enter Subject'>
+                    onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
                 </div>
               </div>
             </div>
             <div class="form-group mt-3">
-              <button type="submit" class="button button-contactForm btn_4">Send Message</button>
+              <input type="submit" class="button button-contactForm btn_4" value="Send" id="btn-send">
+            </div>
+            <div>
+              <span class = "response"></span>
+              <Label ID="lblVessel" Text="Vessel:" runat="server"></Label>
             </div>
           </form>
         </div>
@@ -166,7 +140,7 @@
           <div class="media contact-info">
             <span class="contact-info__icon"><i class="ti-email"></i></span>
             <div class="media-body">
-              <a href="#"><h3>chris6912@gmail.com</h3></a>
+              <a href = "mailto:adhamkash@gmail.com"><h3>chris6912@gmail.com</h3></a>
               <p>Send us your query anytime!</p>
             </div>
           </div>
